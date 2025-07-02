@@ -14,7 +14,7 @@ build:
   script:
     - python -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -38,7 +38,7 @@ requirements:
 tests:
   - python:
       imports:
-      - polars_xdt
+        - polars_xdt
       pip_check: true
 
 about:
