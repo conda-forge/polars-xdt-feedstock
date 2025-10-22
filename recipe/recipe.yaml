@@ -1,6 +1,6 @@
 context:
   name: polars-xdt
-  version: "0.17.0"
+  version: "0.17.1"
 
 package:
   name: ${{ name|lower }}
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace("-", "_") }}-${{ version }}.tar.gz
-  sha256: a8fa359443421dbd6e8375c1cfc12732066ecf41fa1ddedd241b3c129e38afab
+  sha256: 3a3860bf3c3015d519192102af4de687feabc6dbf6a038fc2f60cde72e9d0c45
 
 build:
   script:
     - python -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
-  number: 1
+  number: 0
 
 requirements:
   build:
