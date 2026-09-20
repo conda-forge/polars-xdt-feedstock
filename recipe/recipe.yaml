@@ -12,6 +12,10 @@ source:
 
 build:
   script:
+    # ethnum 1.5.0 (pinned in the upstream Cargo.lock) transmutes () into
+    # TryFromIntError, which is no longer zero-sized in recent rustc (E0512).
+    # 1.5.3 replaced those transmute hacks with safe constructors.
+    - cargo update --package ethnum --precise 1.5.3
     - python -m pip install . -vv
     - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
   number: 1
